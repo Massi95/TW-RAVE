@@ -1,0 +1,28 @@
+<div ng-controller="homeController">
+<div class="page-header">
+    <h1 style="text-align:center">Wiki QuickFind</h1>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <form novalidate class="simple-form" class="col-xs-12">
+            <span class="col-xs-1"></span>
+
+            <input type="text" ng-model="content" ng-change="search()" class="col-xs-6" style="margin:3px;" />
+
+            <span class="col-xs-1"></span>
+        </form>
+        <div class="results col-xs-12">
+            <br/>
+            <span class="col-xs-1"></span>
+            <ul class="list-group col-xs-10">
+                <li class="list-group-item" ng-repeat="result in results">
+                    <h3><a href="{{result.link}}" target="_blank">{{result.title}}</a></h3>
+                    <p>{{result.extract}}<p>
+                </li>
+                
+            </ul>
+            <span class="col-xs-1"></span>
+        </div>
+    </div>
+</div>
+</div>

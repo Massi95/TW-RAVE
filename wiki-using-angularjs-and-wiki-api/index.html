@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>wiki using AngularJS and Wiki API</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+
+  
+  
+</head>
+
+<body>
+  <div class="page-header">
+    <h1 style="text-align:center">Wiki QuickFind</h1>
+</div>
+<div ng-app="wikiApp" class="container-fluid">
+    <div ng-controller="wikiController" class="row">
+        <form novalidate class="simple-form" class="col-xs-12">
+            <span class="col-xs-1"></span>
+
+            <input type="text" ng-model="content" class="col-xs-6" style="margin:3px;" />
+
+            <input type="button" ng-click="reset()" value="Reset" class="col-xs-2 btn btn-warning btn-sm" />
+            <input type="submit" ng-click="getResults()" value="Search" class="col-xs-2 btn btn-primary btn-sm" />
+            <span class="col-xs-1"></span>
+        </form>
+        <div class="results col-xs-12">
+            <br/>
+            <span class="col-xs-1"></span>
+            <ul class="list-group col-xs-10">
+                <li class="list-group-item" ng-repeat="result in results | orderObjectBy: 'result.index'">
+                    <h3><a href="{{result.link}}" target="_blank">{{result.title}}</a></h3>
+                    <p>{{result.extract}}<p>
+                </li>
+                
+            </ul>
+            <span class="col-xs-1"></span>
+        </div>
+    </div>
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>

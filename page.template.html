@@ -1,14 +1,10 @@
 <div ng-controller="pageController as wiki">
 <div class="page-header">
-    <h1 style="text-align:center">QuickFind Results</h1>
+    <h1 style="text-align:center" ng-bind-html="$sce.trustAsHtml(wiki.title)"></h1>
 </div>
 <div class="container-fluid">
     <div class="row">
-       <div class="title"> <h2 ng-bind-html="$sce.trustAsHtml(wiki.title)"></h2> 
-
-       </div>
-		<span ng-bind-html="$sce.trustAsHtml(wiki.text)"></span> 
-
+	   <span ng-bind-html="$sce.trustAsHtml(wiki.text)"></span> 
     </div>
 </div>
 </div>
